@@ -420,7 +420,7 @@
     <tr>
       <td>
         <h3>Amit Kumar Prasad</h3>
-        <p><i>Web Developer | HTML Enthusiast | Open Source Contributor</i></p>
+        <p><i>ECE Student | IoT Developer (ESP/Arduino) | AI/ML Enthusiast | Campus Ambassador @IITs | 3xHackathon Finalist</i></p>
       </td>
     </tr>
   </table>
