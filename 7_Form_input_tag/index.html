@@ -1,0 +1,51 @@
+<!-- 
+    HTML form element
+    <input>
+    <label>
+    <select>
+    <textarea>
+    <button>
+    <fieldset>
+    <legend>
+    <datalist>
+    <output>
+    <optgroup>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Input tag in HTMl</title>
+</head>
+
+<body>
+    <h1>Form and Input tag in HTML</h1>
+    <!-- Creating a form -->
+    <form action="/submit" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="username"><br><br>
+
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="password"><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female<br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+        </select><br><br>
+
+        <textarea name="message" placeholder="Enter your message"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
