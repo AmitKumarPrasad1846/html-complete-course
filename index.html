@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete HTML course from beginner to advanced - Learn with Amit Kumar Prasad">
+    <meta name="keywords" content="HTML, HTML course, web development, learn HTML, HTML tutorial">
+    <meta name="author" content="Amit Kumar Prasad">
+    
+    <title>HTML Complete Course | Beginner to Advanced</title>
+    
+    <!-- Favicon (optional) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: slideDown 0.8s ease;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 20px auto;
+            animation: slideUp 0.8s ease;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 40px;
+            padding: 0 20px;
+        }
+        
+        /* Cards Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .chapter-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .chapter-icon {
+            font-size: 2.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .topic-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .topic-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .topic-list li:before {
+            content: "•";
+            color: #764ba2;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* PDF Section */
+        .pdf-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .pdf-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .pdf-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .pdf-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .pdf-feature {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .pdf-btn {
+            background: white;
+            color: #667eea;
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .pdf-btn:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Chapter Content (hidden by default) */
+        .chapter-content {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .chapter-content.show {
+            display: block;
+        }
+        
+        .chapter-content h3 {
+            color: #667eea;
+            margin: 20px 0 10px;
+        }
+        
+        .chapter-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #667eea;
+        }
+        
+        .chapter-content code {
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer a {
+            color: #c3cfe2;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .pdf-section {
+                padding: 30px 20px;
+            }
+            
+            .pdf-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <span class="header-badge">📚 Complete Learning Path</span>
+        <h1>🚀 HTML Complete Course</h1>
+        <p>From Beginner to Advanced - Master HTML with 13 Comprehensive Modules and 21-Page PDF Guide</p>
+        <div style="margin-top: 30px;">
+            <a href="#course-content" class="btn" style="width: auto; padding: 12px 30px; margin-right: 10px;">📖 Start Learning</a>
+            <a href="#pdf-guide" class="btn btn-outline" style="width: auto; padding: 12px 30px; background: transparent; color: white; border-color: white;">📥 Download PDF</a>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="container" id="course-content">
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Comprehensive Modules</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">21</div>
+                <div class="stat-label">PDF Pages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Code Examples</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">🎯</div>
+                <div class="stat-label">Practice Questions</div>
+            </div>
+        </div>
+        
+        <!-- Course Grid -->
+        <h2 style="font-size: 2rem; margin-bottom: 30px; color: #333;">📚 Course Modules</h2>
+        
+        <div class="course-grid">
+            <!-- Chapter 0 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 0</span>
+                    <span class="chapter-icon">🔰</span>
+                </div>
+                <h3 class="card-title">Introduction to HTML</h3>
+                <ul class="topic-list">
+                    <li>What is HTML?</li>
+                    <li>CSS & JavaScript Basics</li>
+                    <li>Car Analogy</li>
+                    <li>VS Code Installation</li>
+                    <li>Practice Questions</li>
+                </ul>
+                <a href="1_How_website_work/guide.html" class="btn">Start Chapter 0 →</a>
+            </div>
+            
+            <!-- Chapter 1 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 1</span>
+                    <span class="chapter-icon">📄</span>
+                </div>
+                <h3 class="card-title">Your First Web Page</h3>
+                <ul class="topic-list">
+                    <li>Basic HTML Structure</li>
+                    <li>DOCTYPE Declaration</li>
+                    <li>Head & Body Tags</li>
+                    <li>HTML Comments</li>
+                    <li>Practice Questions</li>
+                </ul>
+                <a href="2_your_first_html_website/index.html" class="btn">Start Chapter 1 →</a>
+            </div>
+            
+            <!-- Chapter 2 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 2</span>
+                    <span class="chapter-icon">🏷️</span>
+                </div>
+                <h3 class="card-title">Tags, Elements & Attributes</h3>
+                <ul class="topic-list">
+                    <li>HTML Elements vs Attributes</li>
+                    <li>Headings (h1-h6)</li>
+                    <li>Paragraphs & Formatting</li>
+                    <li>Anchor & Image Tags</li>
+                    <li>PRE Tag & Comments</li>
+                </ul>
+                <a href="3_Basic_structure_html_website/basic_structure_of_Website.html" class="btn">Start Chapter 2 →</a>
+            </div>
+            
+            <!-- Chapter 3 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 3</span>
+                    <span class="chapter-icon">🏛️</span>
+                </div>
+                <h3 class="card-title">Semantic HTML & Layout</h3>
+                <ul class="topic-list">
+                    <li>Header, Nav, Main</li>
+                    <li>Section, Article, Aside</li>
+                    <li>Footer Structure</li>
+                    <li>Div vs Span</li>
+                    <li>Target Attributes</li>
+                </ul>
+                <a href="4_heading_paragraph_link/index.html" class="btn">Start Chapter 3 →</a>
+            </div>
+            
+            <!-- Chapter 4 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 4</span>
+                    <span class="chapter-icon">📊</span>
+                </div>
+                <h3 class="card-title">Lists, Tables & Forms</h3>
+                <ul class="topic-list">
+                    <li>Ordered & Unordered Lists</li>
+                    <li>Tables with Colspan</li>
+                    <li>Forms & Input Types</li>
+                    <li>Textarea & Select</li>
+                    <li>Video Embedding</li>
+                </ul>
+                <a href="5_Image_audio_video_list_tables/index.html" class="btn">Start Chapter 4 →</a>
+            </div>
+            
+            <!-- Chapter 5 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 5</span>
+                    <span class="chapter-icon">🔍</span>
+                </div>
+                <h3 class="card-title">HTML & SEO</h3>
+                <ul class="topic-list">
+                    <li>On-page SEO Basics</li>
+                    <li>Meta Tags</li>
+                    <li>Favicon & Title</li>
+                    <li>Image Alt Text</li>
+                    <li>Code Optimization</li>
+                </ul>
+                <a href="6_SEO_and_core_web_vitals_in_HTML/index.html" class="btn">Start Chapter 5 →</a>
+            </div>
+            
+            <!-- Chapter 6 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 6</span>
+                    <span class="chapter-icon">⚡</span>
+                </div>
+                <h3 class="card-title">Advanced Real-World HTML</h3>
+                <ul class="topic-list">
+                    <li>Advanced Tables</li>
+                    <li>Complex Forms</li>
+                    <li>Multimedia Embeds</li>
+                    <li>Semantic Structure</li>
+                    <li>Meta Tags Deep Dive</li>
+                </ul>
+                <a href="7_Form_input_tag/index.html" class="btn">Start Chapter 6 →</a>
+            </div>
+            
+            <!-- Chapter 7 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 7</span>
+                    <span class="chapter-icon">🚀</span>
+                </div>
+                <h3 class="card-title">Advanced HTML - Developer Mode</h3>
+                <ul class="topic-list">
+                    <li>HTML5 Semantic Revolution</li>
+                    <li>ARIA Accessibility</li>
+                    <li>HTML5 APIs</li>
+                    <li>Web Components</li>
+                    <li>Performance & Security</li>
+                </ul>
+                <a href="8_Inline_block_element/index.html" class="btn">Start Chapter 7 →</a>
+            </div>
+            
+            <!-- Chapter 8: ID & Classes -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 8</span>
+                    <span class="chapter-icon">🔖</span>
+                </div>
+                <h3 class="card-title">ID & Classes</h3>
+                <ul class="topic-list">
+                    <li>ID vs Class Differences</li>
+                    <li>Naming Conventions</li>
+                    <li>CSS Selectors</li>
+                    <li>Multiple Classes</li>
+                    <li>Best Practices</li>
+                </ul>
+                <a href="9_ID_Classes/index.html" class="btn">Start Chapter 8 →</a>
+            </div>
+            
+            <!-- Chapter 9: Video Audio Media -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 9</span>
+                    <span class="chapter-icon">🎵</span>
+                </div>
+                <h3 class="card-title">Video & Audio Advanced</h3>
+                <ul class="topic-list">
+                    <li>Advanced Video Controls</li>
+                    <li>Audio Formats</li>
+                    <li>Media Accessibility</li>
+                    <li>Multiple Sources</li>
+                    <li>Custom Controls</li>
+                </ul>
+                <a href="10_video_audio_media/index.html" class="btn">Start Chapter 9 →</a>
+            </div>
+            
+            <!-- Chapter 10: Semantic Tags -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 10</span>
+                    <span class="chapter-icon">🏗️</span>
+                </div>
+                <h3 class="card-title">Semantic Tags Deep Dive</h3>
+                <ul class="topic-list">
+                    <li>Header & Footer</li>
+                    <li>Nav & Main</li>
+                    <li>Article & Section</li>
+                    <li>Aside & Figure</li>
+                    <li>SEO Benefits</li>
+                </ul>
+                <a href="11_semantic_tag_html/index.html" class="btn">Start Chapter 10 →</a>
+            </div>
+            
+            <!-- Chapter 11: Exercise 1 -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 11</span>
+                    <span class="chapter-icon">✍️</span>
+                </div>
+                <h3 class="card-title">Practice Exercise</h3>
+                <ul class="topic-list">
+                    <li>Real-World Problem</li>
+                    <li>Step-by-Step Solution</li>
+                    <li>Code Walkthrough</li>
+                    <li>Best Practices</li>
+                    <li>Common Mistakes</li>
+                </ul>
+                <a href="12_exercise_1/index.html" class="btn">Start Chapter 11 →</a>
+            </div>
+            
+            <!-- Chapter 12: Entities & Code Tags -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 12</span>
+                    <span class="chapter-icon">🔣</span>
+                </div>
+                <h3 class="card-title">Entities & Code Tags</h3>
+                <ul class="topic-list">
+                    <li>HTML Entities</li>
+                    <li>Special Characters</li>
+                    <li>Code & Pre Tags</li>
+                    <li>Symbols & Icons</li>
+                    <li>Escape Sequences</li>
+                </ul>
+                <a href="13_entities_code_tag_html/index.html" class="btn">Start Chapter 12 →</a>
+            </div>
+            
+            <!-- Chapter 13: Bonus - Inline/Block -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="chapter-number">Chapter 13</span>
+                    <span class="chapter-icon">🔲</span>
+                </div>
+                <h3 class="card-title">Inline vs Block Elements</h3>
+                <ul class="topic-list">
+                    <li>Inline Elements List</li>
+                    <li>Block Elements List</li>
+                    <li>Inline-Block Concept</li>
+                    <li>Display Properties</li>
+                    <li>Practical Examples</li>
+                </ul>
+                <a href="8_Inline_block_element/index.html" class="btn">Start Chapter 13 →</a>
+            </div>
+        </div>
+        
+        <!-- PDF Guide Section -->
+        <div class="pdf-section" id="pdf-guide">
+            <h2>📘 HTML Beginner to Advanced Guide</h2>
+            <p>Complete 21-page PDF guide with chapter-wise practice questions and 100+ examples</p>
+            
+            <div class="pdf-features">
+                <span class="pdf-feature">📄 21 Pages</span>
+                <span class="pdf-feature">📝 13 Chapters</span>
+                <span class="pdf-feature">❓ Practice Qs</span>
+                <span class="pdf-feature">💡 Examples</span>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <a href="HTML_beginner_to_advanced_guide.pdf" class="pdf-btn" download>📥 Download PDF Guide</a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">*PDF includes chapter-wise practice questions after each topic</p>
+        </div>
+        
+        <!-- Chapter Content Preview (Sample) -->
+        <div style="text-align: center; margin: 40px 0;">
+            <h2>📖 Sample Chapter Content</h2>
+            <p style="color: #666; margin-bottom: 20px;">From Chapter 0: Introduction to HTML</p>
+        </div>
+        
+        <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h3 style="color: #667eea;">🔰 What is HTML?</h3>
+            <p style="margin-bottom: 20px;">• HTML stands for <strong>Hyper Text Markup Language</strong><br>
+            • It is the foundation of every website on the internet<br>
+            • Used to define the structure and layout of web pages</p>
+            
+            <h3 style="color: #667eea;">🎨 Why Do We Need CSS and JavaScript?</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 12px; border: 1px solid #ddd;">Layer</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Purpose</th>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">HTML</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Defines structure (skeleton)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">CSS</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Adds style (color, layout)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">JavaScript</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Adds interactivity (logic)</td>
+                </tr>
+            </table>
+            
+            <div style="background: #f0f4f8; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">🚗 Beautiful Analogy:</h4>
+                <p>• <strong>HTML</strong> = Car body (metal frame)<br>
+                • <strong>CSS</strong> = Paint, seat covers, lights (design)<br>
+                • <strong>JavaScript</strong> = Engine, gear system (functionality)</p>
+            </div>
+            
+            <h3 style="color: #667eea;">✅ Practice Questions From Chapter 0:</h3>
+            <ol style="margin-left: 20px;">
+                <li>What is HTML and why is it called a markup language?</li>
+                <li>Differentiate between HTML, CSS, and JavaScript with examples.</li>
+                <li>Explain the car analogy used to describe HTML, CSS, and JavaScript.</li>
+                <li>How does a text editor help in web development?</li>
+                <li>Can we build a complete website using only HTML? Why or why not?</li>
+            </ol>
+        </div>
+        
+        <!-- Connect Section -->
+        <div style="background: white; border-radius: 15px; padding: 40px; margin: 40px 0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom: 20px;">🌟 Connect With Me</h2>
+            <p style="margin-bottom: 30px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <strong>Amit Kumar Prasad</strong><br>
+                ECE Student | IoT Developer (ESP/Arduino) | AI/ML Enthusiast | Campus Ambassador @IITs | 3xHackathon Finalist
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/in/amitkumarprasad1846/" target="_blank" style="text-decoration: none; padding: 12px 25px; background: #0077b5; color: white; border-radius: 50px; display: inline-flex; align-items: center; gap: 8px;">
+                    <span>📱</span> LinkedIn
+                </a>
+                <a href="https://github.com/AmitKumarPrasad1846" target="_blank" style="text-decoration: none; padding: 12px 25px; background: #333; color: white; border-radius: 50px; display: inline-flex; align-items: center; gap: 8px;">
+                    <span>🐙</span> GitHub
+                </a>
+                <a href="mailto:amitkrprasad1846@gmail.com" style="text-decoration: none; padding: 12px 25px; background: #ea4335; color: white; border-radius: 50px; display: inline-flex; align-items: center; gap: 8px;">
+                    <span>📧</span> Email
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; color: #666;">
+                💼 Open to collaboration and opportunities<br>
+                📧 amitkrprasad1846@gmail.com
+            </p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p style="margin-bottom: 20px;">🚀 HTML Complete Course 2026</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/amitkumarprasad1846/">LinkedIn</a> •
+            <a href="https://github.com/AmitKumarPrasad1846">GitHub</a> •
+            <a href="mailto:amitkrprasad1846@gmail.com">Gmail</a>
+        </div>
+        
+        <p style="margin-bottom: 10px;">Made with ❤️ by <strong>Amit Kumar Prasad</strong></p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">© 2026 All Rights Reserved</p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">📚 13 Modules | 📄 21 Page PDF | ❓ Chapter-wise Practice Questions</p>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">⬆️</a>
+    
+    <script>
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
